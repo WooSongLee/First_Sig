@@ -67,7 +67,7 @@ def get_summary_reviews(game_name: str) -> Optional[ReviewData]:
             category_type = review["category_type"]
             polarity = review["Polarity"]
             summary_review = review["summary_review"]
-
+#
             if polarity == "positive":
                 if category_type == "graphic":
                     review_data["graphic"] = summary_review
