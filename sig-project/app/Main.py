@@ -5,8 +5,13 @@ import openai
 import os  # 환경 변수를 읽기 위해 추가
 from database import get_summary_reviews
 from typing import Dict
+from dotenv import load_dotenv
+
 
 app = FastAPI()
+
+load_dotenv()
+
 
 # CORS 설정
 origins = [
@@ -23,7 +28,7 @@ app.add_middleware(
 )
 
 # OpenAI API 키 설정
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # 환경 변수에서 API 키를 가져옴
+OPENAI_API_KEY = os.getenv('API_KEY')  # 환경 변수에서 API 키를 가져옴
 if not OPENAI_API_KEY:
     raise ValueError("API key not found in environment variables")
 
@@ -84,3 +89,4 @@ async def get_review(gamename: str = Query(..., alias="gamename"), target_langua
     print(f"Translated Reviews: {translated_reviews}")
 
     return translated_reviews
+ 
