@@ -95,3 +95,4 @@ async def favicon():
     return Response(content=b'', media_type="image/x-icon")
 
 app.mount("/static", StaticFiles(directory="/Users/iusong/2024--isg-4/sig-project/template/build/static"), name="static")
+##sdafasdf
